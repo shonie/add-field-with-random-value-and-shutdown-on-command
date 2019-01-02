@@ -1,0 +1,1 @@
+exports.SIGTERM = 15;

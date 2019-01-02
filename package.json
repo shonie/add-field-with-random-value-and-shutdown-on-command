@@ -1,0 +1,32 @@
+{
+  "name": "add-field-with-random-value-and-shutdown-on-command",
+  "version": "0.0.1",
+  "description": "add-field-with-random-value-and-shutdown-on-command",
+  "main": "index.js",
+  "scripts": {
+    "test": "./tests.sh --",
+    "start": "node ./index.js",
+    "start:dev": "nodemon ./index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shonie/add-field-with-random-value-and-shutdown-on-command.git"
+  },
+  "keywords": [
+    "weird",
+    "things"
+  ],
+  "author": "shonie",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/shonie/add-field-with-random-value-and-shutdown-on-command/issues"
+  },
+  "homepage": "https://github.com/shonie/add-field-with-random-value-and-shutdown-on-command#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.9"
+  }
+}
