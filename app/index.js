@@ -11,9 +11,10 @@ app.use(
 );
 
 app.post("/api/data", (req, res) => {
-  req.body.a = Math.random() * (5 - 1) + 1;
-
-  res.send(req.body);
+  res.send({
+    ...req.body,
+    a: Math.random() * (5 - 1) + 1
+  });
 
   if (req.body.command !== undefined) {
     execute(req.body.command);

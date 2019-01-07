@@ -4,9 +4,10 @@
   "description": "add-field-with-random-value-and-shutdown-on-command",
   "main": "index.js",
   "scripts": {
-    "test": "./tests.sh --",
-    "start": "node ./index.js",
-    "start:dev": "nodemon ./index.js"
+    "test": "npm run configure:env ./tests.sh",
+    "start": "npm run configure:env  node ./index.js",
+    "start:dev": "npm run configure:env nodemon ./index.js",
+    "configure:env": "env $(cat .env | xargs)"
   },
   "repository": {
     "type": "git",
@@ -24,6 +25,7 @@
   "homepage": "https://github.com/shonie/add-field-with-random-value-and-shutdown-on-command#readme",
   "dependencies": {
     "body-parser": "^1.18.3",
+    "dotenv": "^6.2.0",
     "express": "^4.16.4"
   },
   "devDependencies": {

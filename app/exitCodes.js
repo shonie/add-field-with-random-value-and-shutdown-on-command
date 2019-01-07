@@ -1,1 +1,0 @@
-exports.SIGTERM = 15;

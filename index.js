@@ -1,8 +1,9 @@
+require('dotenv');
 const app = require('./app');
 
-const HOST = process.env.PORT || "127.0.0.1";
+const HOST = process.env.HOST;
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT;
 
 const server = app.listen(PORT, HOST, () => {
   console.info(`Http server started on http://${HOST}:${PORT}`);
