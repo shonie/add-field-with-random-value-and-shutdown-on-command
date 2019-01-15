@@ -6,6 +6,8 @@ expected="\"a\": ?([1-6]+([.][0-9]+)?)"
 
 if [[ $response =~ $expected ]]; then
   echo "Pass: response contains an additional field \"a\" of a random value between 1 and 6."
+  exit 0
 else
   echo "Failed: response does not contain additional field \"a\" of a random value between 1 and 6."
+  exit 1
 fi
