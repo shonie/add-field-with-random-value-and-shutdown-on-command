@@ -1,11 +1,16 @@
 #!/bin/sh
 
-curl --data-binary @$PWD/fixtures/shutdown.json -H "Content-Type: application/json" -X POST $URL
+response=$(curl --data-binary @$PWD/fixtures/shutdown.json -H "Content-Type: application/json" -X POST $URL)
+
+if ! [[ $response ]]; then
+  echo "Failed: server unavailable."
+  exit 1
+fi
 
 # Try to send data (not shutdown command)
-next_response=$(curl --data-binary @$PWD/fixtures/data.json -H "Content-Type: application/json" -X POST $URL)
+next_response=$(curl --data-binary @$PWD/fixtures/data.json -H "Content-Type: application/json" -X POST --fail $URL)
 
-if [[ $next_response ]]; then
+if [[ $next_response ]] && [[ $response ]]; then
   echo "Failed: server should not accept requests after shutdown command."
   exit 1
 else

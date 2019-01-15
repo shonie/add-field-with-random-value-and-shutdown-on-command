@@ -1,6 +1,7 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const execute = require("./execute");
+const { randomFromRange } = require("./util");
 
 const app = express();
 
@@ -13,7 +14,7 @@ app.use(
 app.post("/api/data", (req, res) => {
   res.send({
     ...req.body,
-    a: Math.random() * (5 - 1) + 1
+    a: randomFromRange(1, 5)
   });
 
   if (req.body.command !== undefined) {
